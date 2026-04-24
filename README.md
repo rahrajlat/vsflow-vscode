@@ -21,6 +21,10 @@
   <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
 
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow">Install from the VS Code Marketplace</a>
+</p>
+
 ## Demo
 
 <p align="center">
