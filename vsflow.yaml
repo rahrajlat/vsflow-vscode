@@ -1,7 +1,14 @@
 commands:
   - id: git-pull
     title: Git Pull
-    command: git pulls >> runner.log
+    command: sleep 5;git pulls >> runner.log
+    cron: "*/1 * * * *"
+    paused: true
+    notifyOn: always
+  
+  - id: list
+    title: List Files
+    command: ls -ltrh
     cron: "*/1 * * * *"
     paused: true
     notifyOn: always

@@ -17,6 +17,25 @@
   <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
 
+## Demo
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo.gif" alt="VSFlow demo animation" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-overview.png" alt="VSFlow overview demo screenshot" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-sidebar.png" alt="VSFlow scheduler sidebar demo screenshot" width="48%" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-yaml.png" alt="VSFlow YAML editor demo screenshot" width="48%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-terminal.png" alt="VSFlow terminal and run output demo screenshot" width="100%" />
+</p>
+
 ---
 
 ## Features
