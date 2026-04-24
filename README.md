@@ -1,8 +1,6 @@
-![VSFlow banner](assets/brand/png/vsflow-banner.png)
-
 # VSFlow
 
-![VSFlow logo](assets/brand/png/vsflow-logo.png)
+![VSFlow banner](assets/brand/png/vsflow-banner.png)
 
 YAML-driven task automation for VS Code — define shell commands and multi-step workflows, schedule them with cron, and track every run from a built-in sidebar panel.
 
