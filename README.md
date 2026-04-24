@@ -1,40 +1,22 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
-</p>
+![VSFlow banner](assets/brand/png/vsflow-banner.png)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
-</p>
+# VSFlow
 
-<h1 align="center">VSFlow</h1>
+![VSFlow logo](assets/brand/png/vsflow-logo.png)
 
-<p align="center">
-  YAML-driven task automation for VS Code — define shell commands and multi-step workflows, schedule them with cron, and track every run from a built-in sidebar panel.
-</p>
+YAML-driven task automation for VS Code — define shell commands and multi-step workflows, schedule them with cron, and track every run from a built-in sidebar panel.
 
-<p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
-  <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
-</p>
+[VS Code >= 1.85](https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow) · [MIT License](LICENSE)
 
 ## Demo
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo.gif" alt="VSFlow demo animation" width="100%" />
-</p>
+![VSFlow demo animation](assets/demo/polished/vsflow-polished-demo.gif)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-overview.png" alt="VSFlow overview demo screenshot" width="100%" />
-</p>
+![VSFlow full editor screenshot](assets/demo/polished/vsflow-polished-yaml.png)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-sidebar.png" alt="VSFlow scheduler sidebar demo screenshot" width="48%" />
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-yaml.png" alt="VSFlow YAML editor demo screenshot" width="48%" />
-</p>
+![VSFlow sidebar screenshot](assets/demo/polished/vsflow-polished-sidebar-crop.png)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/vsflow-demo-terminal.png" alt="VSFlow terminal and run output demo screenshot" width="100%" />
-</p>
+![VSFlow history screenshot](assets/demo/polished/vsflow-polished-history.png)
 
 ---
 
