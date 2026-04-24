@@ -1,0 +1,26 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vsflowLogoBg" x1="40" y1="28" x2="210" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B132B"/>
+      <stop offset="0.55" stop-color="#102A43"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="vsflowLogoStroke" x1="74" y1="70" x2="186" y2="182" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="0.55" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <filter id="vsflowShadow" x="20" y="16" width="216" height="224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#vsflowShadow)">
+    <rect x="32" y="24" width="192" height="192" rx="44" fill="url(#vsflowLogoBg)"/>
+    <rect x="40" y="32" width="176" height="176" rx="36" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+    <path d="M84 84H134C162.719 84 186 107.281 186 136C186 164.719 162.719 188 134 188H114" stroke="url(#vsflowLogoStroke)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M114 164L82 190L114 216" stroke="url(#vsflowLogoStroke)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="76" cy="84" r="18" fill="#F8FAFC"/>
+    <circle cx="186" cy="136" r="18" fill="#A7F3D0"/>
+    <circle cx="76" cy="188" r="18" fill="#BAE6FD"/>
+  </g>
+</svg>

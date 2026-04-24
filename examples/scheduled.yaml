@@ -1,0 +1,75 @@
+commands:
+  # Every minute: useful for testing cron locally.
+  - id: airflow-heartbeat
+    title: Airflow Heartbeat
+    command: python scripts/check_airflow_heartbeat.py
+    cron: "* * * * *"
+    notifyOn: failure
+
+  # Keep the AWS session fresh during working hours.
+  - id: refresh-aws-token
+    title: Refresh AWS Token
+    description: Renew AWS SSO credentials for the data-eng profile
+    command: aws sso login --profile data-eng
+    cron: "*/15 8-18 * * 1-5"
+    notifyOn: failure
+
+  # Pull new DAG or model changes every hour.
+  - id: hourly-git-sync
+    title: Hourly Git Sync
+    description: Fetch the latest repo state during the workday
+    command: git fetch --all --prune
+    cron: "0 * * * *"
+    notifyOn: failure
+
+  # Frequent warehouse freshness check.
+  - id: hourly-source-freshness
+    title: Hourly Source Freshness
+    command: dbt source freshness
+    cwd: analytics
+    cron: "15 * * * *"
+    notifyOn: failure
+
+  # PySpark smoke run during business hours.
+  - id: pyspark-smoke-schedule
+    title: PySpark Smoke Schedule
+    description: Validate a representative Spark pipeline every two hours
+    command: spark-submit jobs/smoke_test.py
+    cron: "0 */2 * * 1-5"
+    notifyOn: failure
+
+  # Weekly maintenance for orchestration code.
+  - id: monday-dag-audit
+    title: Monday DAG Audit
+    description: Run Airflow DAG validation every Monday morning
+    command: pytest tests/airflow -q
+    cron: "0 9 * * 1"
+    notifyOn: always
+
+  # Nightly run left paused until you want it enabled.
+  - id: nightly-pyspark-backfill
+    title: Nightly PySpark Backfill
+    command: spark-submit jobs/backfill_fact_tables.py --days 1
+    cron: "0 2 * * *"
+    paused: true
+    notifyOn: failure
+
+  # Scheduled multi-step validation run.
+  - id: nightly-data-platform-validation
+    title: Nightly Data Platform Validation
+    description: Refresh auth, sync git, validate dbt, Airflow, and Spark overnight
+    mode: sequence
+    cron: "30 1 * * *"
+    notifyOn: failure
+    steps:
+      - title: Refresh AWS Token
+        command: aws sso login --profile data-eng
+      - title: Git Pull
+        command: git pull --rebase
+      - title: Airflow DAG Import Check
+        command: python -m py_compile dags/*.py
+      - title: dbt Build
+        command: dbt build --select tag:nightly
+        cwd: analytics
+      - title: PySpark Validation
+        command: spark-submit jobs/validate_dimensions.py

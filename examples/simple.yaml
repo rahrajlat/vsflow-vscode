@@ -1,0 +1,41 @@
+commands:
+  # Minimal dbt command
+  - title: List dbt Models
+    command: dbt ls
+
+  # AWS auth check with an explicit id
+  - id: aws-identity
+    title: AWS Identity
+    command: aws sts get-caller-identity --profile data-eng
+
+  # Git utility command
+  - id: git-status
+    title: Git Status
+    description: Review local repo changes before running pipelines
+    command: git status --short
+
+  # Run from a dbt project directory
+  - id: dbt-compile
+    title: dbt Compile
+    description: Compile the analytics project
+    command: dbt compile
+    cwd: analytics
+
+  # Notification variants
+  - id: airflow-dag-check
+    title: Airflow DAG Import Check
+    description: Only notify when DAG imports fail
+    command: python -m py_compile dags/*.py
+    notifyOn: failure
+
+  - id: pyspark-smoke
+    title: PySpark Smoke Test
+    description: Notify on success and failure for a local Spark job
+    command: spark-submit jobs/smoke_test.py
+    notifyOn: always
+
+  - id: aws-refresh-quiet
+    title: AWS Token Refresh
+    description: Quietly refresh the AWS SSO session
+    command: aws sso login --profile data-eng
+    notifyOn: never

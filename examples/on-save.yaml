@@ -1,0 +1,69 @@
+commands:
+  # dbt SQL models.
+  - id: sqlfluff-models-on-save
+    title: SQLFluff Models on Save
+    description: Lint dbt model SQL files as they change
+    command: sqlfluff lint models
+    cwd: analytics
+    onSave: "analytics/models/**/*.sql"
+    notifyOn: failure
+
+  # dbt YAML metadata.
+  - id: dbt-parse-on-save
+    title: dbt Parse on Save
+    description: Re-parse the dbt project when YAML changes
+    command: dbt parse
+    cwd: analytics
+    onSave: "analytics/**/*.yml"
+    notifyOn: failure
+
+  # Airflow DAG edits.
+  - id: dag-import-check-on-save
+    title: DAG Import Check on Save
+    description: Ensure Airflow DAGs still import cleanly
+    command: python -m py_compile dags/*.py
+    onSave: "dags/**/*.py"
+    notifyOn: failure
+
+  # PySpark jobs.
+  - id: pyspark-job-on-save
+    title: PySpark Job on Save
+    description: Run a smoke check when Spark job code changes
+    command: spark-submit jobs/smoke_test.py
+    onSave: "jobs/**/*.py"
+    notifyOn: failure
+
+  # Git-owned CI config or hooks.
+  - id: git-hooks-reminder-on-save
+    title: Git Hooks Reminder
+    description: Remind the team to keep shared Git automation in sync
+    command: echo ".githooks changed - make sure teammates can install the updated hooks."
+    onSave: ".githooks/**"
+    notifyOn: always
+
+  # AWS-related deployment config changes.
+  - id: aws-login-on-save
+    title: AWS Login on Save
+    description: Quietly refresh AWS auth when infra config changes
+    command: aws sso login --profile data-eng
+    onSave: "infra/**/*.tf"
+    notifyOn: never
+
+  # onSave plus cron on the same data-quality task.
+  - id: dbt-smoke-on-save-and-schedule
+    title: dbt Smoke on Save and Schedule
+    description: Run a dbt smoke build after model edits and again overnight
+    command: dbt build --select tag:smoke
+    cwd: analytics
+    onSave: "analytics/models/**/*.sql"
+    cron: "0 0 * * *"
+    notifyOn: failure
+
+  # Defined but inactive until explicitly enabled.
+  - id: git-sync-on-save
+    title: Git Sync on Save
+    description: Fetch remote changes after workflow config edits
+    command: git fetch --all --prune
+    onSave: ".github/workflows/*.yml"
+    paused: true
+    notifyOn: always

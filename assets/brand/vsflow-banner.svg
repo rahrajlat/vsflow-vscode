@@ -1,0 +1,65 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="74" y1="34" x2="1190" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="0.58" stop-color="#102A43"/>
+      <stop offset="1" stop-color="#123B3A"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="118" y1="112" x2="450" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.1)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="172" y1="184" x2="410" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="0.55" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1044 150) rotate(126.647) scale(245.567 294.523)">
+      <stop stop-color="#38BDF8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="756" y="-84" width="534" height="534" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="46"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="36" fill="url(#bg)"/>
+  <rect x="42" y="42" width="1196" height="556" rx="28" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <g filter="url(#blur)">
+    <circle cx="1023" cy="183" r="140" fill="url(#orb)"/>
+  </g>
+
+  <g transform="translate(116 118)">
+    <rect width="332" height="332" rx="36" fill="url(#panel)"/>
+    <rect x="1" y="1" width="330" height="330" rx="35" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M92 100H180C229.706 100 270 140.294 270 190C270 239.706 229.706 280 180 280H144" stroke="url(#accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M144 246L110 274L144 302" stroke="url(#accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="84" cy="100" r="18" fill="#F8FAFC"/>
+    <circle cx="270" cy="190" r="18" fill="#A7F3D0"/>
+    <circle cx="84" cy="280" r="18" fill="#BAE6FD"/>
+    <path d="M84 100C133.333 130.667 194.4 190.8 270 190" stroke="rgba(125,211,252,0.22)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M84 280C133.333 249.333 194.4 189.2 270 190" stroke="rgba(52,211,153,0.18)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <text x="522" y="206" fill="#E6F1FF" font-family="Segoe UI, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-2.2">VSFlow</text>
+  <text x="524" y="264" fill="#B6D6F7" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="600">YAML-driven automation for VS Code</text>
+  <text x="524" y="332" fill="#93A9C4" font-family="Segoe UI, Arial, sans-serif" font-size="22">Design repeatable workflows, schedule command runs,</text>
+  <text x="524" y="366" fill="#93A9C4" font-family="Segoe UI, Arial, sans-serif" font-size="22">and inspect history from a single native sidebar.</text>
+
+  <g transform="translate(524 416)">
+    <rect width="170" height="46" rx="23" fill="rgba(125,211,252,0.12)" stroke="rgba(125,211,252,0.3)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#DDF4FF" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Workflows</text>
+  </g>
+  <g transform="translate(710 416)">
+    <rect width="164" height="46" rx="23" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.3)"/>
+    <text x="82" y="30" text-anchor="middle" fill="#DDE8FF" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Scheduling</text>
+  </g>
+  <g transform="translate(890 416)">
+    <rect width="138" height="46" rx="23" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.3)"/>
+    <text x="69" y="30" text-anchor="middle" fill="#DCFCEB" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">History</text>
+  </g>
+
+  <path d="M522 512H1060" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-linecap="round"/>
+  <text x="524" y="556" fill="#7F94AC" font-family="Segoe UI, Arial, sans-serif" font-size="20">Built for developers who want automation without leaving the editor.</text>
+</svg>

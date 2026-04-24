@@ -1,0 +1,83 @@
+{
+  "name": "vsflow",
+  "displayName": "VSFlow",
+  "description": "YAML-driven workflows, schedules, and command runs for VS Code",
+  "version": "0.0.1",
+  "publisher": "rahrajlat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rahrajlat/vsflow"
+  },
+  "homepage": "https://github.com/rahrajlat/vsflow#readme",
+  "bugs": {
+    "url": "https://github.com/rahrajlat/vsflow/issues"
+  },
+  "keywords": [
+    "workflow",
+    "automation",
+    "scheduler",
+    "cron",
+    "yaml",
+    "tasks",
+    "runner"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsflow.runCommand",
+        "title": "VSFlow: Run Workspace Command"
+      },
+      {
+        "command": "vsflow.refreshCommands",
+        "title": "VSFlow: Refresh Workspace Commands"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vsflow-sidebar",
+          "title": "VSFlow",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "vsflow-sidebar": [
+        {
+          "id": "vsflowView",
+          "name": "VSFlow",
+          "type": "webview"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "vsflow.refreshCommands",
+          "when": "view == vsflowView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.39",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}

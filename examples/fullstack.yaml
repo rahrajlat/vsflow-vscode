@@ -1,0 +1,135 @@
+# A realistic vsflow.yaml for a dbt + Airflow + PySpark data platform workspace.
+# Copy relevant sections into your own vsflow.yaml; you do not need to use all of them.
+
+commands:
+  # On-save triggers
+
+  - id: sqlfluff-on-save
+    title: SQLFluff on Save
+    description: Lint dbt SQL models whenever a model file changes
+    command: sqlfluff lint models
+    cwd: analytics
+    onSave: "analytics/models/**/*.sql"
+    notifyOn: failure
+
+  - id: dbt-parse-on-save
+    title: dbt Parse on Save
+    description: Re-parse dbt when project YAML changes
+    command: dbt parse
+    cwd: analytics
+    onSave: "analytics/**/*.yml"
+    notifyOn: failure
+
+  - id: dag-check-on-save
+    title: Airflow DAG Check on Save
+    description: Catch broken DAG imports as soon as orchestration code changes
+    command: python -m py_compile dags/*.py
+    onSave: "dags/**/*.py"
+    notifyOn: failure
+
+  - id: pyspark-smoke-on-save
+    title: PySpark Smoke on Save
+    description: Validate a Spark job after ETL code changes
+    command: spark-submit jobs/smoke_test.py
+    onSave: "jobs/**/*.py"
+    notifyOn: failure
+
+  # Manual dev commands
+
+  - id: aws-login
+    title: Refresh AWS Login
+    description: Renew the local AWS SSO session for platform work
+    command: aws sso login --profile data-eng
+    notifyOn: always
+
+  - id: git-sync
+    title: Git Sync
+    description: Pull the latest DAG and model changes
+    command: git pull --rebase
+    notifyOn: always
+
+  - id: dbt-dev-build
+    title: dbt Dev Build
+    description: Build developer-tagged models
+    command: dbt build --select tag:dev
+    cwd: analytics
+    notifyOn: always
+
+  - id: airflow-dag-test
+    title: Airflow DAG Test
+    description: Run orchestration-focused tests
+    command: pytest tests/airflow -q
+    notifyOn: failure
+
+  - id: pyspark-validation
+    title: PySpark Validation
+    description: Run a representative Spark validation job
+    command: spark-submit jobs/validate_dimensions.py
+    notifyOn: failure
+
+  # Scheduled maintenance
+
+  - id: refresh-aws-token
+    title: Refresh AWS Token
+    description: Keep credentials fresh during work hours
+    command: aws sso login --profile data-eng
+    cron: "*/30 8-18 * * 1-5"
+    notifyOn: failure
+
+  - id: source-freshness
+    title: Source Freshness
+    description: Check upstream table freshness every hour
+    command: dbt source freshness
+    cwd: analytics
+    cron: "0 * * * *"
+    notifyOn: failure
+
+  - id: nightly-data-ci
+    title: Nightly Data CI
+    description: Full dbt, Airflow, Git, and Spark validation overnight
+    mode: sequence
+    cron: "0 1 * * *"
+    notifyOn: failure
+    steps:
+      - title: Refresh AWS Login
+        command: aws sso login --profile data-eng
+      - title: Git Pull
+        command: git pull --rebase
+      - title: Validation
+        mode: parallel
+        steps:
+          - title: Airflow DAG Check
+            command: python -m py_compile dags/*.py
+          - title: Airflow Tests
+            command: pytest tests/airflow -q
+          - title: dbt Build
+            command: dbt build --select tag:nightly
+            cwd: analytics
+          - title: PySpark Validation
+            command: spark-submit jobs/validate_dimensions.py
+
+  # Manual pre-merge shortcut
+
+  - id: pre-merge-check
+    title: Pre-Merge Check
+    description: Everything to run before opening a PR
+    mode: sequence
+    notifyOn: always
+    steps:
+      - title: Refresh AWS Login
+        command: aws sso login --profile data-eng
+      - title: Git Fetch
+        command: git fetch --all --prune
+      - title: Checks
+        mode: parallel
+        steps:
+          - title: Airflow DAG Check
+            command: python -m py_compile dags/*.py
+          - title: dbt Parse
+            command: dbt parse
+            cwd: analytics
+          - title: PySpark Smoke Test
+            command: spark-submit jobs/smoke_test.py
+      - title: dbt Build
+        command: dbt build --select state:modified+
+        cwd: analytics

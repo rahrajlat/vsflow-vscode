@@ -1,0 +1,89 @@
+commands:
+  # Sequence workflow: auth first, then dbt validation.
+  - id: aws-and-dbt-validate
+    title: AWS and dbt Validate
+    description: Refresh AWS credentials, fetch git updates, then validate dbt
+    mode: sequence
+    notifyOn: failure
+    steps:
+      - title: Refresh AWS Token
+        command: aws sso login --profile data-eng
+      - title: Git Fetch
+        command: git fetch --all --prune
+      - title: dbt Parse
+        command: dbt parse
+        cwd: analytics
+      - title: dbt Test
+        command: dbt test --select state:modified+
+        cwd: analytics
+
+  # Parallel workflow: independent checks for the platform stack.
+  - id: platform-checks
+    title: Platform Checks
+    description: Run Airflow, dbt, Git, and PySpark checks concurrently
+    mode: parallel
+    notifyOn: failure
+    steps:
+      - title: Airflow DAG Import Check
+        command: python -m py_compile dags/*.py
+      - title: dbt Parse
+        command: dbt parse
+        cwd: analytics
+      - title: Git Status
+        command: git status --short
+      - title: PySpark Smoke Test
+        command: spark-submit jobs/smoke_test.py
+
+  # Nested workflow: parallel validation before a build/deploy step.
+  - id: warehouse-release-check
+    title: Warehouse Release Check
+    description: Validate orchestration and transformation code before a release build
+    mode: sequence
+    notifyOn: always
+    steps:
+      - title: Refresh AWS Token
+        command: aws sso login --profile data-eng
+      - title: Validation
+        mode: parallel
+        steps:
+          - title: Git Pull -- Rebase
+            command: git pull --rebase
+          - title: Airflow DAG Import Check
+            command: python -m py_compile dags/*.py
+          - title: dbt Build
+            command: dbt build --select tag:release_candidate
+            cwd: analytics
+          - title: PySpark Unit Job
+            command: spark-submit jobs/validate_dimensions.py
+      - title: dbt Docs Generate
+        command: dbt docs generate
+        cwd: analytics
+
+  # Fan-out pipelines: orchestration and transformation paths.
+  - id: orchestration-and-warehouse
+    title: Orchestration and Warehouse
+    description: Validate Airflow and dbt pipelines side by side
+    mode: parallel
+    notifyOn: failure
+    steps:
+      - title: Airflow Pipeline
+        mode: sequence
+        steps:
+          - title: Git Fetch
+            command: git fetch origin
+          - title: DAG Import Check
+            command: python -m py_compile dags/*.py
+          - title: DAG Test
+            command: pytest tests/airflow -q
+      - title: Warehouse Pipeline
+        mode: sequence
+        steps:
+          - title: dbt deps
+            command: dbt deps
+            cwd: analytics
+          - title: dbt Source Freshness
+            command: dbt source freshness
+            cwd: analytics
+          - title: dbt Build
+            command: dbt build --select state:modified+
+            cwd: analytics
