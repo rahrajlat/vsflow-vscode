@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
 </p>
 
 <p align="center">
-  <img src="./assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
 </p>
 
 <h1 align="center">VSFlow</h1>
@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=rahrajlat.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
+  <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
 
 ---

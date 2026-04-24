@@ -3,16 +3,16 @@
   "displayName": "VSFlow",
   "description": "YAML-driven workflows, schedules, and command runs for VS Code",
   "version": "0.0.1",
-  "publisher": "rahrajlat",
+  "publisher": "rahul-devlocal-commit-ai",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rahrajlat/vsflow"
+    "url": "https://github.com/rahrajlat/vsflow-vscode.git"
   },
-  "homepage": "https://github.com/rahrajlat/vsflow#readme",
+  "homepage": "https://github.com/rahrajlat/vsflow-vscode#readme",
   "bugs": {
-    "url": "https://github.com/rahrajlat/vsflow/issues"
+    "url": "https://github.com/rahrajlat/vsflow-vscode/issues"
   },
   "keywords": [
     "workflow",

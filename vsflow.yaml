@@ -1,52 +1,7 @@
 commands:
-  # Runs whenever a TypeScript file is saved
-  - id: lint-on-save
-    title: Lint on Save
-    description: Run ESLint whenever a .ts file is saved
-    command: npx eslint --fix "${file}"
-    onSave: "src/**/*.ts"
-    notifyOn: failure
-
-  # Simple shell command — runs every minute, notifies only on failure
   - id: git-pull
     title: Git Pull
-    description: Pull latest changes from origin
-    command: git pull
-    cron: "* * * * *"
-    notifyOn: failure
-
-  # Sequence workflow — steps run one after another
-  - id: dev-check
-    title: Dev Check
-    description: Install dependencies and compile in order
-    mode: sequence
-    steps:
-      - title: Install
-        command: npm install
-      - title: Compile
-        command: npm run compile
-
-  # Nested workflow — parallel steps inside a sequence
-  - id: build-and-pull
-    title: Build and Pull
-    description: Parallel build + pull, then a final compile step
-    mode: sequence
-    steps:
-      - title: Parallel Phase
-        mode: parallel
-        steps:
-          - title: TypeScript Build
-            command: npm run compile
-          - title: Pull Latest
-            command: git pull
-      - title: Final Compile
-        command: npm run compile
-
-  # Scheduled nightly build, paused by default
-  - id: nightly-build
-    title: Nightly Build
-    description: Compile the extension at 2 AM
-    command: npm run compile
-    cron: "0 2 * * *"
+    command: git pulls >> runner.log
+    cron: "*/1 * * * *"
     paused: true
-    notifyOn: success
+    notifyOn: always
