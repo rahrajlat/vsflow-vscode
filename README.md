@@ -13,6 +13,10 @@
 </p>
 
 <p align="center">
+  VSFlow reads a <code>vsflow.yaml</code> file from your workspace root.
+</p>
+
+<p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
   <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
@@ -54,6 +58,7 @@
 |---|---|
 | VS Code | ≥ 1.85 |
 | Workspace folder | at least one must be open |
+| Config file | `vsflow.yaml` must exist at the workspace root |
 
 ---
 

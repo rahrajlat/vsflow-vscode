@@ -2,7 +2,7 @@
   "name": "vsflow",
   "displayName": "VSFlow",
   "description": "YAML-driven workflows, schedules, and command runs for VS Code",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "rahul-devlocal-commit-ai",
   "license": "MIT",
   "icon": "images/icon.png",
