@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./assets/brand/vsflow-banner.svg" alt="VSFlow banner" width="100%" />
+  <img src="./assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
 </p>
 
 <p align="center">
-  <img src="./assets/brand/vsflow-logo.svg" alt="VSFlow logo" width="112" />
+  <img src="./assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
 </p>
 
 <h1 align="center">VSFlow</h1>
@@ -13,9 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rahrajlat/vsflow/actions/workflows/ci.yml"><img src="https://github.com/rahrajlat/vsflow/actions/workflows/ci.yml/badge.svg" alt="Build" /></a>
   <a href="https://marketplace.visualstudio.com/items?itemName=rahrajlat.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
 
 ---
