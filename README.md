@@ -25,6 +25,10 @@
   <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow">Install from the VS Code Marketplace</a>
 </p>
 
+<p align="center">
+  If VSFlow helps your workflow, please star the repo. Built by <a href="https://www.rahulrajasekharan.dev/">Rahul Rajasekharan</a>.
+</p>
+
 ## Demo
 
 <p align="center">
