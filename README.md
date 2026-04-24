@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
 </p>
 
 <p align="center">
-  <img src="assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
 </p>
 
 <h1 align="center">VSFlow</h1>
@@ -13,20 +13,24 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow">VS Code &gt;= 1.85</a>
-  ·
-  <a href="LICENSE">MIT License</a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow"><img src="https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue" alt="VS Code" /></a>
+  <a href="https://github.com/rahrajlat/vsflow-vscode/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.png" alt="License: MIT" /></a>
 </p>
 
 ## Demo
 
-![VSFlow demo animation](assets/demo/polished/vsflow-polished-demo.gif)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/polished/vsflow-polished-demo.gif" alt="VSFlow demo animation" width="100%" />
+</p>
 
-![VSFlow full editor screenshot](assets/demo/polished/vsflow-polished-yaml.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/polished/vsflow-polished-yaml.png" alt="VSFlow full editor screenshot" width="100%" />
+</p>
 
-![VSFlow sidebar screenshot](assets/demo/polished/vsflow-polished-sidebar-crop.png)
-
-![VSFlow history screenshot](assets/demo/polished/vsflow-polished-history.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/polished/vsflow-polished-sidebar-crop.png" alt="VSFlow sidebar screenshot" width="48%" />
+  <img src="https://raw.githubusercontent.com/rahrajlat/vsflow-vscode/main/assets/demo/polished/vsflow-polished-history.png" alt="VSFlow history screenshot" width="48%" />
+</p>
 
 ---
 
