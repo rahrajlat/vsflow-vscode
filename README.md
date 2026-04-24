@@ -1,10 +1,22 @@
-# VSFlow
+<p align="center">
+  <img src="assets/brand/png/vsflow-banner.png" alt="VSFlow banner" width="100%" />
+</p>
 
-![VSFlow banner](assets/brand/png/vsflow-banner.png)
+<p align="center">
+  <img src="assets/brand/png/vsflow-logo.png" alt="VSFlow logo" width="112" />
+</p>
 
-YAML-driven task automation for VS Code — define shell commands and multi-step workflows, schedule them with cron, and track every run from a built-in sidebar panel.
+<h1 align="center">VSFlow</h1>
 
-[VS Code >= 1.85](https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow) · [MIT License](LICENSE)
+<p align="center">
+  YAML-driven task automation for VS Code — define shell commands and multi-step workflows, schedule them with cron, and track every run from a built-in sidebar panel.
+</p>
+
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=rahul-devlocal-commit-ai.vsflow">VS Code &gt;= 1.85</a>
+  ·
+  <a href="LICENSE">MIT License</a>
+</p>
 
 ## Demo
 
